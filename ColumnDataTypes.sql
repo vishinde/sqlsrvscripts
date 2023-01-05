@@ -1,4 +1,19 @@
+--just get a query for data type per table names, no column names
+
+select 	tab.name as tablename,
+		col.name as colname,
+		t.name as datatype,
+		col.precision,
+		col.scale
+  from sys.columns as col
+        inner join sys.types as t
+        on col.user_type_id = t.user_type_id
+		inner join sys.tables as tab
+		on tab.object_id = col.object_id
+
+
 --from https://dataedo.com/kb/query/sql-server/most-used-data-type-in-the-database
+
 select t.name as data_type,
     count(*) as [columns],
     cast(100.0 * count(*) /
@@ -36,3 +51,8 @@ order by schema_name,
          column_id;
 
 
+select *
+from sys.types;
+
+select *
+from sys.columns;
