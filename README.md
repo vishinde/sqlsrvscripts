@@ -1,6 +1,6 @@
 # sqlsrvscripts
 
-InstanceConfig.csv contains sql scripts to assess sql server instance level configuration
+InstanceConfig.csv contains sql scripts to assess instance level configuration
  
 sqldbassesscmds.csv contains sql scripts to assess database level features
 
