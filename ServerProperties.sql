@@ -7,8 +7,6 @@ SELECT 'CollationID', SERVERPROPERTY('CollationID')
 UNION ALL
 SELECT 'ComparisonStyle', SERVERPROPERTY('ComparisonStyle')
 UNION ALL
-SELECT 'ComputerNamePhysicalNetBIOS', SERVERPROPERTY('ComputerNamePhysicalNetBIOS')
-UNION ALL
 SELECT 'Edition', SERVERPROPERTY('Edition')
 UNION ALL
 SELECT 'EditionID', SERVERPROPERTY('EditionID')
@@ -16,10 +14,6 @@ UNION ALL
 SELECT 'EngineEdition', SERVERPROPERTY('EngineEdition')
 UNION ALL
 SELECT 'HadrManagerStatus', SERVERPROPERTY('HadrManagerStatus')
-UNION ALL
-SELECT 'InstanceDefaultDataPath', SERVERPROPERTY('InstanceDefaultDataPath')
-UNION ALL
-SELECT 'InstanceDefaultLogPath', SERVERPROPERTY('InstanceDefaultLogPath')
 UNION ALL
 SELECT 'InstanceName', SERVERPROPERTY('InstanceName')
 UNION ALL
