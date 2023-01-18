@@ -1,3 +1,5 @@
+SET QUOTED_IDENTIFIER ON
+
 DECLARE @ts_now bigint = (SELECT cpu_ticks/(cpu_ticks/ms_ticks) FROM sys.dm_os_sys_info WITH (NOLOCK)); 
 SELECT AVG([SQL Server Process CPU Utilization]) as AVG_SQLServer_Process_CPU_Utilization, 
                 AVG([System Idle Process]) as AVG_System_Idle_Process, 
