@@ -1,3 +1,5 @@
+SET NOCOUNT ON
+
 SELECT 'BuildClrVersion' AS Property, SERVERPROPERTY('BuildClrVersion') AS Value
 UNION ALL
 SELECT 'Collation', SERVERPROPERTY('Collation')

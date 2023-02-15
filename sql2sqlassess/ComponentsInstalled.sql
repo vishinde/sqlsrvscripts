@@ -1,4 +1,4 @@
---https://pawansingh1431.blogspot.com/2011/02/check-what-are-sql-components-installed.html
+SET NOCOUNT ON
 --Components Installed
 /*------------------------------------------*/
 /* SQL Server Components Check Utility */

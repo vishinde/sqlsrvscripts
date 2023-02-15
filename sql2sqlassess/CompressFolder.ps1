@@ -1,1 +1,1 @@
-﻿Compress-Archive -Path .\output -DestinationPath .\output.zip
+﻿Compress-Archive -Path .\output -DestinationPath .\output.zip -Force

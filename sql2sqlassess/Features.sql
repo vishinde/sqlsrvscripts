@@ -1,3 +1,5 @@
+SET NOCOUNT ON
+
 IF OBJECT_ID('tempdb..#FeaturesEnabled') IS NOT NULL  
    DROP TABLE #FeaturesEnabled;  
 
@@ -25,14 +27,6 @@ SELECT @IS_DBMail_Enabled_value = CAST(value_in_use as INT)  FROM  sys.configura
 IF @IS_DBMail_Enabled_value = 1 SET @IS_DBMail_Enabled = 'Yes'  ELSE  SET @IS_DBMail_Enabled = 'No' ;
 INSERT INTO #FeaturesEnabled VALUES (
 'Database Mail', @IS_DBMail_Enabled, 0 );
-
---Policy based management
-USE msdb;
-DECLARE @PoliciesEnabled_value as INT, @IS_PoliciesEnabled as NVARCHAR(4)
-SELECT @PoliciesEnabled_value = count(*) FROM syspolicy_policies where is_enabled =1;
-IF @PoliciesEnabled_value > 0 SET @IS_PoliciesEnabled = 'Yes'  ELSE  SET @IS_PoliciesEnabled = 'No' ;
-INSERT INTO #FeaturesEnabled VALUES (
-'Policy Based Management', @IS_PoliciesEnabled, @PoliciesEnabled_value );
 
 --external scripts enabled
 DECLARE @ExtScriptsEnabled as INT, @IS_ExtScriptsEnabled as NVARCHAR(4);
@@ -78,7 +72,6 @@ select @ExternalAssembliesUsed = COUNT(*) from sys.server_permissions where perm
 IF @ExternalAssembliesUsed > 0 SET @IS_ExternalAssembliesUsed = 'Yes'  ELSE  SET @IS_ExternalAssembliesUsed = 'No' ;
 INSERT INTO #FeaturesEnabled VALUES (
 'External Assemblies Used', @IS_ExternalAssembliesUsed, @ExternalAssembliesUsed );
-SELECT * FROM #FeaturesEnabled;
 
 --CLR Enabled
 DECLARE @CLREnabledUsed as INT, @IS_@CLREnabledUsed as NVARCHAR(4);
@@ -86,4 +79,13 @@ select @CLREnabledUsed = CAST(value_in_use AS INT) FROM  sys.configurations wher
 IF @CLREnabledUsed > 0 SET @IS_@CLREnabledUsed = 'Yes'  ELSE  SET @IS_@CLREnabledUsed = 'No' ;
 INSERT INTO #FeaturesEnabled VALUES (
 'CLR Enabled', @IS_@CLREnabledUsed, @CLREnabledUsed );
+
+--Policy based management
+USE msdb;
+DECLARE @PoliciesEnabled_value as INT, @IS_PoliciesEnabled as NVARCHAR(4)
+SELECT @PoliciesEnabled_value = count(*) FROM syspolicy_policies where is_enabled =1;
+IF @PoliciesEnabled_value > 0 SET @IS_PoliciesEnabled = 'Yes'  ELSE  SET @IS_PoliciesEnabled = 'No' ;
+INSERT INTO #FeaturesEnabled VALUES (
+'Policy Based Management', @IS_PoliciesEnabled, @PoliciesEnabled_value );
+
 SELECT * FROM #FeaturesEnabled;
