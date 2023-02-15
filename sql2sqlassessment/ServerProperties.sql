@@ -1,83 +1,85 @@
 SET NOCOUNT ON
+DECLARE @PKEY AS VARCHAR(100)
+select @PKEY = @@SERVERNAME + '_' + 'master' + '_' + @@ServiceName + '_' + FORMAT(GETDATE() , 'MMddyyHHmmss');
 
-SELECT 'BuildClrVersion' AS Property, SERVERPROPERTY('BuildClrVersion') AS Value
+SELECT @PKEY as PKEY,'BuildClrVersion' AS Property, SERVERPROPERTY('BuildClrVersion') AS Value
 UNION ALL
-SELECT 'Collation', SERVERPROPERTY('Collation')
+SELECT @PKEY as PKEY,'Collation', SERVERPROPERTY('Collation')
 UNION ALL
-SELECT 'CollationID', SERVERPROPERTY('CollationID')
+SELECT @PKEY as PKEY,'CollationID', SERVERPROPERTY('CollationID')
 UNION ALL
-SELECT 'ComparisonStyle', SERVERPROPERTY('ComparisonStyle')
+SELECT @PKEY as PKEY,'ComparisonStyle', SERVERPROPERTY('ComparisonStyle')
 UNION ALL
-SELECT 'Edition', SERVERPROPERTY('Edition')
+SELECT @PKEY as PKEY,'Edition', SERVERPROPERTY('Edition')
 UNION ALL
-SELECT 'EditionID', SERVERPROPERTY('EditionID')
+SELECT @PKEY as PKEY,'EditionID', SERVERPROPERTY('EditionID')
 UNION ALL
-SELECT 'EngineEdition', SERVERPROPERTY('EngineEdition')
+SELECT @PKEY as PKEY,'EngineEdition', SERVERPROPERTY('EngineEdition')
 UNION ALL
-SELECT 'HadrManagerStatus', SERVERPROPERTY('HadrManagerStatus')
+SELECT @PKEY as PKEY,'HadrManagerStatus', SERVERPROPERTY('HadrManagerStatus')
 UNION ALL
-SELECT 'InstanceName', SERVERPROPERTY('InstanceName')
+SELECT @PKEY as PKEY,'InstanceName', SERVERPROPERTY('InstanceName')
 UNION ALL
-SELECT 'IsAdvancedAnalyticsInstalled', SERVERPROPERTY('IsAdvancedAnalyticsInstalled')
+SELECT @PKEY as PKEY,'IsAdvancedAnalyticsInstalled', SERVERPROPERTY('IsAdvancedAnalyticsInstalled')
 UNION ALL
-SELECT 'IsClustered', SERVERPROPERTY('IsClustered')
+SELECT @PKEY as PKEY,'IsClustered', SERVERPROPERTY('IsClustered')
 UNION ALL
-SELECT 'IsFullTextInstalled', SERVERPROPERTY('IsFullTextInstalled')
+SELECT @PKEY as PKEY,'IsFullTextInstalled', SERVERPROPERTY('IsFullTextInstalled')
 UNION ALL
-SELECT 'IsHadrEnabled', SERVERPROPERTY('IsHadrEnabled')
+SELECT @PKEY as PKEY,'IsHadrEnabled', SERVERPROPERTY('IsHadrEnabled')
 UNION ALL
-SELECT 'IsIntegratedSecurityOnly', SERVERPROPERTY('IsIntegratedSecurityOnly')
+SELECT @PKEY as PKEY,'IsIntegratedSecurityOnly', SERVERPROPERTY('IsIntegratedSecurityOnly')
 UNION ALL
-SELECT 'IsLocalDB', SERVERPROPERTY('IsLocalDB')
+SELECT @PKEY as PKEY,'IsLocalDB', SERVERPROPERTY('IsLocalDB')
 UNION ALL
-SELECT 'IsPolyBaseInstalled', SERVERPROPERTY('IsPolyBaseInstalled')
+SELECT @PKEY as PKEY,'IsPolyBaseInstalled', SERVERPROPERTY('IsPolyBaseInstalled')
 UNION ALL
-SELECT 'IsSingleUser', SERVERPROPERTY('IsSingleUser')
+SELECT @PKEY as PKEY,'IsSingleUser', SERVERPROPERTY('IsSingleUser')
 UNION ALL
-SELECT 'IsXTPSupported', SERVERPROPERTY('IsXTPSupported')
+SELECT @PKEY as PKEY,'IsXTPSupported', SERVERPROPERTY('IsXTPSupported')
 UNION ALL
-SELECT 'LCID', SERVERPROPERTY('LCID')
+SELECT @PKEY as PKEY,'LCID', SERVERPROPERTY('LCID')
 UNION ALL
-SELECT 'LicenseType', SERVERPROPERTY('LicenseType')
+SELECT @PKEY as PKEY,'LicenseType', SERVERPROPERTY('LicenseType')
 UNION ALL
-SELECT 'MachineName', SERVERPROPERTY('MachineName')
+SELECT @PKEY as PKEY,'MachineName', SERVERPROPERTY('MachineName')
 UNION ALL
-SELECT 'NumLicenses', SERVERPROPERTY('NumLicenses')
+SELECT @PKEY as PKEY,'NumLicenses', SERVERPROPERTY('NumLicenses')
 UNION ALL
-SELECT 'ProcessID', SERVERPROPERTY('ProcessID')
+SELECT @PKEY as PKEY,'ProcessID', SERVERPROPERTY('ProcessID')
 UNION ALL
-SELECT 'ProductBuild', SERVERPROPERTY('ProductBuild')
+SELECT @PKEY as PKEY,'ProductBuild', SERVERPROPERTY('ProductBuild')
 UNION ALL
-SELECT 'ProductBuildType', SERVERPROPERTY('ProductBuildType')
+SELECT @PKEY as PKEY,'ProductBuildType', SERVERPROPERTY('ProductBuildType')
 UNION ALL
-SELECT 'ProductLevel', SERVERPROPERTY('ProductLevel')
+SELECT @PKEY as PKEY,'ProductLevel', SERVERPROPERTY('ProductLevel')
 UNION ALL
-SELECT 'ProductMajorVersion', SERVERPROPERTY('ProductMajorVersion')
+SELECT @PKEY as PKEY,'ProductMajorVersion', SERVERPROPERTY('ProductMajorVersion')
 UNION ALL
-SELECT 'ProductMinorVersion', SERVERPROPERTY('ProductMinorVersion')
+SELECT @PKEY as PKEY,'ProductMinorVersion', SERVERPROPERTY('ProductMinorVersion')
 UNION ALL
-SELECT 'ProductUpdateLevel', SERVERPROPERTY('ProductUpdateLevel')
+SELECT @PKEY as PKEY,'ProductUpdateLevel', SERVERPROPERTY('ProductUpdateLevel')
 UNION ALL
-SELECT 'ProductUpdateReference', SERVERPROPERTY('ProductUpdateReference')
+SELECT @PKEY as PKEY,'ProductUpdateReference', SERVERPROPERTY('ProductUpdateReference')
 UNION ALL
-SELECT 'ProductVersion', SERVERPROPERTY('ProductVersion')
+SELECT @PKEY as PKEY,'ProductVersion', SERVERPROPERTY('ProductVersion')
 UNION ALL
-SELECT 'ResourceLastUpdateDateTime', SERVERPROPERTY('ResourceLastUpdateDateTime')
+SELECT @PKEY as PKEY,'ResourceLastUpdateDateTime', SERVERPROPERTY('ResourceLastUpdateDateTime')
 UNION ALL
-SELECT 'ResourceVersion', SERVERPROPERTY('ResourceVersion')
+SELECT @PKEY as PKEY,'ResourceVersion', SERVERPROPERTY('ResourceVersion')
 UNION ALL
-SELECT 'ServerName', SERVERPROPERTY('ServerName')
+SELECT @PKEY as PKEY,'ServerName', SERVERPROPERTY('ServerName')
 UNION ALL
-SELECT 'SqlCharSet', SERVERPROPERTY('SqlCharSet')
+SELECT @PKEY as PKEY,'SqlCharSet', SERVERPROPERTY('SqlCharSet')
 UNION ALL
-SELECT 'SqlCharSetName', SERVERPROPERTY('SqlCharSetName')
+SELECT @PKEY as PKEY,'SqlCharSetName', SERVERPROPERTY('SqlCharSetName')
 UNION ALL
-SELECT 'SqlSortOrder', SERVERPROPERTY('SqlSortOrder')
+SELECT @PKEY as PKEY,'SqlSortOrder', SERVERPROPERTY('SqlSortOrder')
 UNION ALL
-SELECT 'SqlSortOrderName', SERVERPROPERTY('SqlSortOrderName')
+SELECT @PKEY as PKEY,'SqlSortOrderName', SERVERPROPERTY('SqlSortOrderName')
 UNION ALL
-SELECT 'FilestreamShareName', SERVERPROPERTY('FilestreamShareName')
+SELECT @PKEY as PKEY,'FilestreamShareName', SERVERPROPERTY('FilestreamShareName')
 UNION ALL
-SELECT 'FilestreamConfiguredLevel', SERVERPROPERTY('FilestreamConfiguredLevel')
+SELECT @PKEY as PKEY,'FilestreamConfiguredLevel', SERVERPROPERTY('FilestreamConfiguredLevel')
 UNION ALL
-SELECT 'FilestreamEffectiveLevel', SERVERPROPERTY('FilestreamEffectiveLevel');
+SELECT @PKEY as PKEY,'FilestreamEffectiveLevel', SERVERPROPERTY('FilestreamEffectiveLevel');

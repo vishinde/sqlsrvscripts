@@ -88,4 +88,6 @@ IF @PoliciesEnabled_value > 0 SET @IS_PoliciesEnabled = 'Yes'  ELSE  SET @IS_Pol
 INSERT INTO #FeaturesEnabled VALUES (
 'Policy Based Management', @IS_PoliciesEnabled, @PoliciesEnabled_value );
 
-SELECT * FROM #FeaturesEnabled;
+SELECT 
+CAST(@@SERVERNAME + '_' + 'master' + '_' + @@ServiceName + '_' + FORMAT(GETDATE() , 'MMddyyHHmmss') AS VARCHAR(100)) AS PKEY,
+* FROM #FeaturesEnabled;
